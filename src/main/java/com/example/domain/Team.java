@@ -1,11 +1,23 @@
 package com.example.domain;
 
+/**
+ * teamsテーブルに対応したドメイン.
+ * 
+ * @author yoshiki.morimoto
+ *
+ */
 public class Team {
+	/** ID */
 	private Integer id;
+	/** リーグ名 */
 	private String leaguename;
+	/** チーム名 */
 	private String teamName;
+	/** 本拠地 */
 	private String headquarters;
+	/** 発足 */
 	private String inauguration;
+	/** 歴史 */
 	private String history;
 	public Integer getId() {
 		return id;
