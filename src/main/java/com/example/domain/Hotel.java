@@ -1,12 +1,25 @@
 package com.example.domain;
 
+/**
+ * hotelsテーブルに対応したドメイン.
+ * 
+ * @author yoshiki.morimoto
+ *
+ */
 public class Hotel {
+	/** ID */
 	private Integer id;
+	/** エリア */
 	private String areaName;
+	/** ホテル名 */
 	private String hotelName;
+	/** 住所 */
 	private String address;
+	/** 最寄り駅 */
 	private String nearestStation;
+	/** 価格 */
 	private Integer price;
+	/** 駐車場 */
 	private String parking;
 	public Integer getId() {
 		return id;
