@@ -2,58 +2,51 @@ package com.example.domain;
 
 public class Team {
 	private Integer id;
-	private String areaName;
-	private String hotelName;
-	private String address;
-	private String nearest_station;
-	private Integer price;
-	private String parking;
+	private String leaguename;
+	private String teamName;
+	private String headquarters;
+	private String inauguration;
+	private String history;
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getAreaName() {
-		return areaName;
+	public String getLeaguename() {
+		return leaguename;
 	}
-	public void setAreaName(String areaName) {
-		this.areaName = areaName;
+	public void setLeaguename(String leaguename) {
+		this.leaguename = leaguename;
 	}
-	public String getHotelName() {
-		return hotelName;
+	public String getTeamName() {
+		return teamName;
 	}
-	public void setHotelName(String hotelName) {
-		this.hotelName = hotelName;
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
-	public String getAddress() {
-		return address;
+	public String getHeadquarters() {
+		return headquarters;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setHeadquarters(String headquarters) {
+		this.headquarters = headquarters;
 	}
-	public String getNearest_station() {
-		return nearest_station;
+	public String getInauguration() {
+		return inauguration;
 	}
-	public void setNearest_station(String nearest_station) {
-		this.nearest_station = nearest_station;
+	public void setInauguration(String inauguration) {
+		this.inauguration = inauguration;
 	}
-	public Integer getPrice() {
-		return price;
+	public String getHistory() {
+		return history;
 	}
-	public void setPrice(Integer price) {
-		this.price = price;
-	}
-	public String getParking() {
-		return parking;
-	}
-	public void setParking(String parking) {
-		this.parking = parking;
+	public void setHistory(String history) {
+		this.history = history;
 	}
 	@Override
 	public String toString() {
-		return "Team [id=" + id + ", areaName=" + areaName + ", hotelName=" + hotelName + ", address=" + address
-				+ ", nearest_station=" + nearest_station + ", price=" + price + ", parking=" + parking + "]";
+		return "Team [id=" + id + ", leaguename=" + leaguename + ", teamName=" + teamName + ", headquarters="
+				+ headquarters + ", inauguration=" + inauguration + ", history=" + history + "]";
 	}
 	
 }
