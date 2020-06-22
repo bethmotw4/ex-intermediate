@@ -7,8 +7,9 @@
 </head>
 <body>
 	<h2>ホテル検索</h2>
-	<form action="hotel-search.html" th:action="@{/ex02/search}" method="post">
-		<input type="text" id="price" th:id="price" name="price">
+	<form action="hotel-search.html" th:action="@{/ex02/search}" th:object="${hotelForm}" method="post">
+		<div th:errors="*{price}" style="color: red">error</div>
+		<input type="text" id="price" th:id="price" name="price" th:field="*{price}">
 		<label for="price" th:for="price">円以下</label><br>
 		<button>検索</button>
 	</form>

@@ -40,7 +40,7 @@ public class HotelRepository {
 	 * @return ホテル一覧
 	 */
 	public List<Hotel> findAll() {
-		String sql = "SELECT id, area_name, hotel_name, address, nearestStation, price, parking "
+		String sql = "SELECT id, area_name, hotel_name, address, nearest_station, price, parking "
 				+ "FROM hotels ORDER BY price;";
 		return template.query(sql, HOTEL_ROW_MAPPER);
 	}
@@ -49,13 +49,10 @@ public class HotelRepository {
 	 * 価格が入力された価格以下のホテルの取得.
 	 * 
 	 * @param price 入力された価格
-	 * @return 入力あり:ホテル情報, 入力なし:ホテル一覧
+	 * @return ホテル情報
 	 */
 	public List<Hotel> findByPrice(Integer price) {
-		if (price == null) {
-			return findAll();
-		}
-		String sql = "SERECT id, area_name, hotel_name, address, nearestStation, price, parking "
+		String sql = "SELECT id, area_name, hotel_name, address, nearest_station, price, parking "
 				+ "FROM hotels WHERE price<=:price ORDER BY price;";
 		SqlParameterSource source = new MapSqlParameterSource().addValue("price", price);
 		return template.query(sql, source, HOTEL_ROW_MAPPER);

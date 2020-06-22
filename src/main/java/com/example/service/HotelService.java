@@ -36,7 +36,10 @@ public class HotelService {
 	 * @param price 価格
 	 * @return
 	 */
-	public List<Hotel> findByPrice(Integer price) {
-		return repository.findByPrice(price);
+	public List<Hotel> findByPrice(String price) {
+		if (price == null) {
+			return repository.findAll();
+		}
+		return repository.findByPrice(Integer.parseInt(price));
 	}
 }
