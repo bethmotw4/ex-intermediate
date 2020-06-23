@@ -2,38 +2,53 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<link th:href="@{/css/hotel-search.css}" rel="stylesheet">
+<link th:href="@{/css/clothe-list.css}" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
 	<h3>衣類検索</h3>
 	<form action="clothes-list.html" th:action="@{/ex03/search}" th:object="${clotheForm}" method="post">
-		<span th:each="gender, status:${genderList}">
-			<input type="radio" name="gender" th:text="${gender}" th:value="${status.index}" th:field=*{gender}>
-		</span>
-		<div>
-			<select name="colors">
-				<option th:each="color, index:${colorList}" th:text="${color}" th:value="${status.index}" th:field="*{color}">color</option>
-			</select>
-		</div>
-		<button>検索</button>
-		<br>
-		<div th:if="clothe:${clotheList}">
-			<table>
-				<tr>
-					<td>ジャンル</td>
-					<td th:text="${clothe.genre}">genre</td>
-				</tr>
-				<tr>
-					<td>サイズ</td>
-					<td th:text="${clothe.size}">size</td>
-				</tr>
-				<tr>
-					<td>価格</td>
-					<td th:text="${#numbers.formatInteger(clothe.price, 0,'COMMA')}">price</td>
-				</tr>
-			</table>
-		</div>
+		<table>
+			<tr>
+				<td>
+					<span th:each="gender, status:${session.genderList}">
+						<input th:id="'gender' + ${status.index}" type="radio" name="gender" th:value="${status.index}" th:field=*{gender}>
+						<label th:for="'gender' + ${status.index}" th:text="${gender}">gender</label><br>
+					</span>
+				</td>
+				<td>
+					<span>
+						<select name="color">
+							<option th:each="color:${session.colorList}" th:text="${color}" th:value="${color}" th:field="*{color}">color</option>
+						</select>
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button>検索</button>
+				</td>
+			</tr>
+		</table>
 	</form>
+	<br>
+	<div th:unless="${check}" th:text="該当なし"></div>
+	<div th:if="${check}">
+		<table th:each="clothe:${clotheList}" class="search">
+			<tr class="odd">
+				<td class="name"><strong>ジャンル</strong></td>
+				<td class="value" th:text="${clothe.genre}">genre</td>
+			</tr>
+			<tr class="even">
+				<td class="name"><strong>サイズ</strong></td>
+				<td class="value" th:text="${clothe.size}">size</td>
+			</tr>
+			<tr class="odd">
+				<td class="name"><strong>価格</strong></td>
+				<td class="value" th:text="${#numbers.formatInteger(clothe.price, 0,'COMMA')}">price</td>
+			</tr>
+		</table>
+	</div>
+	<div></div>
 </body>
 </html>

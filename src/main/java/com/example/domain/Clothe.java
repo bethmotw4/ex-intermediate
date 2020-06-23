@@ -14,7 +14,7 @@ public class Clothe {
 	/** ジャンル */
 	private String genre;
 	/** 性別 */
-	private String gender;
+	private Integer gender;
 	/** 色 */
 	private String color;
 	/** 価格 */
@@ -39,10 +39,10 @@ public class Clothe {
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-	public String getGender() {
+	public Integer getGender() {
 		return gender;
 	}
-	public void setGender(String gender) {
+	public void setGender(Integer gender) {
 		this.gender = gender;
 	}
 	public String getColor() {
