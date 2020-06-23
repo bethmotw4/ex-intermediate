@@ -36,7 +36,7 @@ public class HotelService {
 	 * @param price 価格
 	 * @return
 	 */
-	public List<Hotel> findByPrice(String price) {
+	public List<Hotel> searchByLessThanPrice(String price) {
 		if (price.isEmpty()) {
 			return repository.findAll();
 		}

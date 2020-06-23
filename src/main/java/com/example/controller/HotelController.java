@@ -37,7 +37,7 @@ public class HotelController {
 			return index();
 		}
 		System.out.println(form.getPrice());
-		List<Hotel> hotelList = service.findByPrice(form.getPrice());
+		List<Hotel> hotelList = service.searchByLessThanPrice(form.getPrice());
 		System.out.println(hotelList.size());
 		model.addAttribute("hotelList", hotelList);
 		return "hotel-search";
