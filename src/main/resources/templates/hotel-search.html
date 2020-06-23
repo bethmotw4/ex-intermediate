@@ -26,7 +26,7 @@
 			</tr>
 			<tr class="odd">
 				<td class="colum">価格</td>
-				<td class="value" th:text="${hotel.price}">price</td>
+				<td class="value" th:text="${#numbers.formatInteger(hotel.price, 0, 'COMMA')}">price</td>
 			</tr>
 		</table>
 	</div>
