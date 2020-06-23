@@ -36,6 +36,7 @@ public class HotelController {
 		if (result.hasErrors()) {
 			return index();
 		}
+		System.out.println(form.getPrice());
 		List<Hotel> hotelList = service.findByPrice(form.getPrice());
 		System.out.println(hotelList.size());
 		model.addAttribute("hotelList", hotelList);

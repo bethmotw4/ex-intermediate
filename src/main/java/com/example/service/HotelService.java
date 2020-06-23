@@ -37,7 +37,7 @@ public class HotelService {
 	 * @return
 	 */
 	public List<Hotel> findByPrice(String price) {
-		if (price == null) {
+		if (price.isEmpty()) {
 			return repository.findAll();
 		}
 		return repository.findByPrice(Integer.parseInt(price));
