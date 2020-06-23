@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/hotel-search.css}" rel="stylesheet">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>衣類検索</h3>
+	<form action="clothes-list.html" th:action="@{/ex03/search}" th:object="${clotheForm}" method="post">
+		<span th:each="gender, status:${genderList}">
+			<input type="radio" name="gender" th:text="${gender}" th:value="${status.index}" th:field=*{gender}>
+		</span>
+		<div>
+			<select name="colors">
+				<option th:each="color, index:${colorList}" th:text="${color}" th:value="${status.index}" th:field="*{color}">color</option>
+			</select>
+		</div>
+		<button>検索</button>
+		<br>
+		<div th:if="clothe:${clotheList}">
+			<table>
+				<tr>
+					<td>ジャンル</td>
+					<td th:text="${clothe.genre}">genre</td>
+				</tr>
+				<tr>
+					<td>サイズ</td>
+					<td th:text="${clothe.size}">size</td>
+				</tr>
+				<tr>
+					<td>価格</td>
+					<td th:text="${#numbers.formatInteger(clothe.price, 0,'COMMA')}">price</td>
+				</tr>
+			</table>
+		</div>
+	</form>
+</body>
+</html>

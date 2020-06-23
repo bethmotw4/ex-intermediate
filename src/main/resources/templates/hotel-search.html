@@ -13,7 +13,7 @@
 		<label for="price" th:for="price">円以下</label><br>
 		<button>検索</button>
 	</form>
-	
+	<br>
 	<div th:if="${hotelList}">
 		<table th:each="hotel:${hotelList}">
 			<tr class="odd">
